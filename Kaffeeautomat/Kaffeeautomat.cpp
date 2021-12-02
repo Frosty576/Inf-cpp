@@ -11,4 +11,13 @@ int main() {
 	cout << "(s) Service-Mode\n";
 
 	string x;
-	cin >> x;
+	cin >> x; //User Input eingabe und in string x gespeichert 
+
+	if ((x == "k") || (x == "e") || (x == "s")) {							  //ueberprueft ob user input k,e oder s ist
+		cout << "Sie haben sich f\u0081r Auswahl " << x << " entschieden.\n"; //Wenn ja, wird satz ausgegeben. 
+	}
+
+	system("pause");
+
+	return 0;
+}
