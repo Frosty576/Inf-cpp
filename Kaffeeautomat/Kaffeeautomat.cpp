@@ -9,3 +9,6 @@ int main() {
 	cout << "(k) Kaffee\n";
 	cout << "(e) Espresso\n";
 	cout << "(s) Service-Mode\n";
+
+	string x;
+	cin >> x;
