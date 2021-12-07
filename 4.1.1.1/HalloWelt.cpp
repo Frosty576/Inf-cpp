@@ -1,4 +1,4 @@
-+#include<iostream> 
+#include<iostream> 
 using namespace std; 
 // das ist die Eintrittsfunktion 
 int main() 
