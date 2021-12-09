@@ -15,3 +15,21 @@ int main() {
 	int postleitzahl;
 	cin >> postleitzahl >> Wohnort;
 	cin.clear();
+
+	cout << "Bitte ihre Strassenname und dann ihre Hausnummer eingeben:" << endl;
+	string strasse;
+	int hausnummer;
+	cin >> strasse >> hausnummer;
+	cin.clear();
+
+	string str_post;
+	string str_haus;
+
+	//konvertiert int zu string
+	ostringstream wandler;
+	wandler << postleitzahl;
+	str_post = wandler.str();
+
+	ostringstream wandler1;
+	wandler1 << hausnummer;
+	str_haus = wandler1.str();
