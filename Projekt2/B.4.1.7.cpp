@@ -33,3 +33,8 @@ int main() {
 	ostringstream wandler1;
 	wandler1 << hausnummer;
 	str_haus = wandler1.str();
+
+	string ausgabe = "\n" + vorname + " " + name + "\n" + str_post + " " + Wohnort + "\n" + strasse + " " + str_haus;
+	cout << ausgabe << endl;
+	system("pause");
+}
