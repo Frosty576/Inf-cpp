@@ -4,12 +4,12 @@ using namespace std;
 
 int main() {
 
-	int l;
+	int l ;
 	double laenge{ 100.05 };
 	char zeichen;
-	l = laenge;
-	zeichen = laenge;
+	l = (int)laenge;
+	zeichen = (char)laenge;
 	cout << laenge << " " << l << " " << zeichen << endl;
-	string messlatte{ "777.77" };
+	float messlatte{777.77};
 	laenge = static_cast<double>(messlatte);
 }
