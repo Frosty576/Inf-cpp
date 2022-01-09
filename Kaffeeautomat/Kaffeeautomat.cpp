@@ -10,11 +10,19 @@ int main() {
 	cout << "(e) Espresso\n";
 	cout << "(s) Service-Mode\n";
 
-	string x;
+	char x;
 	cin >> x; //User Input eingabe und in string x gespeichert 
 
-	if ((x == "k") || (x == "e") || (x == "s")) {							  //ueberprueft ob user input k,e oder s ist
-		cout << "Sie haben sich f\u0081r Auswahl " << x << " entschieden.\n"; //Wenn ja, wird satz ausgegeben. 
+	switch(x) {  
+	case 'k' :
+		cout << "Sie haben sich f\u0081r die Auswahl Kaffee entschieden.\n";
+		break;
+	case 'e' :
+		cout << "Sie haben sich f\u0081r die Auswahl Espresso entschieden.\n";
+		break;
+	case 's' :
+		cout << "Sie haben sich f\u0081r die Auswahl Service-Mode entschieden.\n";
+		break;
 	}
 
 	system("pause");
