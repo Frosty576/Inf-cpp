@@ -104,7 +104,21 @@ int main() {
 			continue;	//Falls eingabe falsch ist, 'continue' (Züruck an Anfang der While schleife)
 		}
 
+		cout << "Bitte " << gp << " Euro eingeben und ENTER dr\u0081cken\n"; //Ausgabe von gesamt Preis
+		float geld;	//geld eingabe
+		cin >> geld;
+		if (geld >= gp) {
+			float rgeld = geld - gp; //rückgeld
+			cout << "Ihr Getr„nk wird zubereitet.....\n";
+			cout << "Bitte " << rgeld << " Euro R\u0081ckgeld und das Getr„nk entnehmen -:)\n";
+		}
+		else {
+			cout << "Zu wenig Geld, Bestellung abgebrochen\n";
+			system("pause");
+		}
+
 		system("pause");
+		gp = 0; //Getränk preis wieder auf 0 gesetzt
 	}
 	return 0;
 }
