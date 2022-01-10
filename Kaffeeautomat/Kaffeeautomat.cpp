@@ -36,18 +36,39 @@ int main() {
 
 
 		char x;
-		cin >> x; //User Input eingabe und in string x gespeichert 
-
+		cin >> x;
 		switch (x) {
 		case 'k':
 			cout << "Sie haben sich f\u0081r die Auswahl Kaffee entschieden.\n";
+			kb = kb - km;	//Neue Menge von Kaffeebohnen
+			w = w - wmk;	//Neue Menge von Water
+			gp = gp + kp;	//Preis von Kaffee
 			break;
 		case 'e':
 			cout << "Sie haben sich f\u0081r die Auswahl Espresso entschieden.\n";
+			eb = eb - em;	//Neue Menge von Espressobohnen
+			w = w - wme;	//Neue Menge von Water
+			gp = gp + ep;	//Preis von Espresso
 			break;
 		case 's':
-			cout << "Sie haben sich f\u0081r die Auswahl Service-Mode entschieden.\n";
-			break;
+			cout << "Service-Interface\n";
+			cout << "-----------------------------------------------\n";
+			cout << "Noch vorhandene Mengen:\n";
+			cout << "Kaffee :" << kb << " g Milch: " << m << "ml\n";
+			cout << "Espresso :" << eb << " g Wasser: " << w << "ml\n";
+			cout << "Zucker: " << z << " g\n";
+			cout << "-----------------------------------------------\n";
+			cout << "Mengen pro Tasse :\n";
+			cout << "Kaffee: " << km << " g Milch: " << mm << " ml\n";
+			cout << "Espresso: " << em << " g Wasser fr Kaffee: " << wmk << " ml\n";
+			cout << "Zucker: " << zm << " g Wasser fr Espresso: " << wme << " ml\n";
+			cout << "-----------------------------------------------\n";
+			system("pause");
+			continue;
+		default:
+			cout << "Falsche Eingabe!\n";
+			system("pause");
+			continue;
 		}
 
 		system("pause");
