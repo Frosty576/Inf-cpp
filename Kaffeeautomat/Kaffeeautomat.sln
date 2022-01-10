@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Kaffeeautomat", "Kaffeeautomat.vcxproj", "{05B2ACCF-F092-462F-A6D7-6F3E6A081503}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "B.4.3.2", "..\B.4.3.2\B.4.3.2.vcxproj", "{3EEF440B-BB05-4BA6-B443-EBDA0039A8D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{05B2ACCF-F092-462F-A6D7-6F3E6A081503}.Release|x64.Build.0 = Release|x64
 		{05B2ACCF-F092-462F-A6D7-6F3E6A081503}.Release|x86.ActiveCfg = Release|Win32
 		{05B2ACCF-F092-462F-A6D7-6F3E6A081503}.Release|x86.Build.0 = Release|Win32
+		{3EEF440B-BB05-4BA6-B443-EBDA0039A8D4}.Debug|x64.ActiveCfg = Debug|x64
+		{3EEF440B-BB05-4BA6-B443-EBDA0039A8D4}.Debug|x64.Build.0 = Debug|x64
+		{3EEF440B-BB05-4BA6-B443-EBDA0039A8D4}.Debug|x86.ActiveCfg = Debug|Win32
+		{3EEF440B-BB05-4BA6-B443-EBDA0039A8D4}.Debug|x86.Build.0 = Debug|Win32
+		{3EEF440B-BB05-4BA6-B443-EBDA0039A8D4}.Release|x64.ActiveCfg = Release|x64
+		{3EEF440B-BB05-4BA6-B443-EBDA0039A8D4}.Release|x64.Build.0 = Release|x64
+		{3EEF440B-BB05-4BA6-B443-EBDA0039A8D4}.Release|x86.ActiveCfg = Release|Win32
+		{3EEF440B-BB05-4BA6-B443-EBDA0039A8D4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
