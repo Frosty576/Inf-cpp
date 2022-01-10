@@ -34,7 +34,6 @@ int main() {
 		cout << "(e) Espresso\n";
 		cout << "(s) Service-Mode\n";
 
-
 		char x;
 		cin >> x;
 		switch (x) {
@@ -69,6 +68,40 @@ int main() {
 			cout << "Falsche Eingabe!\n";
 			system("pause");
 			continue;
+		}
+
+		cout << "M”chten Sie Zucker (j/n)?\n";
+		char cinz; // (j/n) Zucker eingabe
+		cin >> cinz;
+		switch (cinz) {
+		case 'j':
+			if (cinz == 'j') {
+				z = z - zm;		//(Zucker vorrat - Zucker pro Tasse)
+				gp = gp + zp;	//(Getränk preis + Zucker Preis)
+			}
+		case 'n':
+			break;
+		default:
+			cout << "Falsche Eingabe!\n";
+			system("pause");
+			continue;	//Falls eingabe falsch ist, 'continue' (Züruck an Anfang der While schleife)
+		}
+
+		cout << "M”chten Sie Milch (j/n)?\n";
+		char cinm; // (j/n) Milch eingabe
+		cin >> cinm;
+		switch (cinm) {
+		case 'j':
+			if (cinm == 'j') {
+				m = m - mm;		//Milch vorrat - Milch pro Tasse
+				gp = gp + mp;	//(Getränk preis + Milch Preis)
+			}
+		case 'n':
+			break;
+		default:
+			cout << "Falsche Eingabe!\n";
+			system("pause");
+			continue;	//Falls eingabe falsch ist, 'continue' (Züruck an Anfang der While schleife)
 		}
 
 		system("pause");
