@@ -81,6 +81,7 @@ int main() {
 		break;
 		default:
 			cout << "Falsche Eingabe!\n";
+			gp = 0;
 			system("pause");
 			continue;	//Falls eingabe falsch ist, 'continue' (Züruck an Anfang der While schleife)
 		}
@@ -96,6 +97,7 @@ int main() {
 			break;
 		default:
 			cout << "Falsche Eingabe!\n";
+			gp = 0;
 			system("pause");
 			continue;	//Falls eingabe falsch ist, 'continue' (Züruck an Anfang der While schleife)
 		}
@@ -107,6 +109,7 @@ int main() {
 			float rgeld = geld - gp; //rückgeld
 			cout << "Ihr Getr„nk wird zubereitet.....\n";
 			cout << "Bitte " << rgeld << " Euro R\u0081ckgeld und das Getr„nk entnehmen -:)\n";
+			system("pause");
 		}
 		else {
 			cout << "Zu wenig Geld, Bestellung abgebrochen\n";
@@ -114,6 +117,7 @@ int main() {
 			system("pause");
 			continue;
 		}
+		gp = 0;
 	}
 	return 0;
 }
