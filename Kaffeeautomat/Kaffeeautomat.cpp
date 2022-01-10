@@ -75,12 +75,10 @@ int main() {
 		cin >> cinz;
 		switch (cinz) {
 		case 'j':
-			if (cinz == 'j') {
 				z = z - zm;		//(Zucker vorrat - Zucker pro Tasse)
 				gp = gp + zp;	//(Getränk preis + Zucker Preis)
-			}
 		case 'n':
-			break;
+		break;
 		default:
 			cout << "Falsche Eingabe!\n";
 			system("pause");
@@ -92,10 +90,8 @@ int main() {
 		cin >> cinm;
 		switch (cinm) {
 		case 'j':
-			if (cinm == 'j') {
 				m = m - mm;		//Milch vorrat - Milch pro Tasse
 				gp = gp + mp;	//(Getränk preis + Milch Preis)
-			}
 		case 'n':
 			break;
 		default:
