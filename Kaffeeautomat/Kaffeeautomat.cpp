@@ -110,11 +110,10 @@ int main() {
 		}
 		else {
 			cout << "Zu wenig Geld, Bestellung abgebrochen\n";
+			gp = 0;
 			system("pause");
+			continue;
 		}
-
-		system("pause");
-		gp = 0; //Getränk preis wieder auf 0 gesetzt
 	}
 	return 0;
 }
