@@ -20,30 +20,37 @@ int main() {
 	float zp = .1f; //Zuckerpreis
 	float gp = 0; //getränk preis
 
-	system("CLS"); //Bildshirm löschen
+	while (true) {
 
-	cout << "Herzlich Willkommen beim Kaffee-Automaten!\n";
-	cout << "Bitte w\x84hlen Sie aus : \n";
-	cout << "(k) Kaffee\n";
-	cout << "(e) Espresso\n";
-	cout << "(s) Service-Mode\n";
+		system("CLS");	//Bildshirm löschen
 
-	char x;
-	cin >> x; //User Input eingabe und in string x gespeichert 
+		cout << "Herzlich Willkommen beim Kaffee-Automaten!\n";
+		cout << "Preis pro Tasse :\n";
+		cout << "Kaffee oder Espresso: 1 Euro\n";
+		cout << "Milch oder Zucker:  0.1 Euro\n";
+		cout << "\n";
+		cout << "Bitte w\x84hlen Sie aus:\n";
+		cout << "(k) Kaffee\n";
+		cout << "(e) Espresso\n";
+		cout << "(s) Service-Mode\n";
 
-	switch (x) {
-	case 'k':
-		cout << "Sie haben sich f\u0081r die Auswahl Kaffee entschieden.\n";
-		break;
-	case 'e':
-		cout << "Sie haben sich f\u0081r die Auswahl Espresso entschieden.\n";
-		break;
-	case 's':
-		cout << "Sie haben sich f\u0081r die Auswahl Service-Mode entschieden.\n";
-		break;
+
+		char x;
+		cin >> x; //User Input eingabe und in string x gespeichert 
+
+		switch (x) {
+		case 'k':
+			cout << "Sie haben sich f\u0081r die Auswahl Kaffee entschieden.\n";
+			break;
+		case 'e':
+			cout << "Sie haben sich f\u0081r die Auswahl Espresso entschieden.\n";
+			break;
+		case 's':
+			cout << "Sie haben sich f\u0081r die Auswahl Service-Mode entschieden.\n";
+			break;
+		}
+
+		system("pause");
 	}
-
-	system("pause");
-
 	return 0;
 }
