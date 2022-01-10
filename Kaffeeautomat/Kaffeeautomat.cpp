@@ -8,6 +8,17 @@ int main() {
 	int w = 5000; //Wasser vorratsmenge
 	int m = 1000; //Milch vorratsmenge
 	int z = 500;  //Zucker vorratsmenge
+	int km = 5;	// Kaffeemenge pro tasse
+	int em = 5; // Espressomenge pro tasse
+	int wmk = 125; // Wassermenge pro tasse Kaffee
+	int wme = 25; // Wassermenge pro tasse Esspresso
+	int mm = 30; // Milchmenge pro tasse
+	int zm = 3; // Zuckermenge pro tasse
+	int kp = 1; // Kaffeepreis
+	int ep = 1; // Espressopreis
+	float mp = .1f; //Milchpreis
+	float zp = .1f; //Zuckerpreis
+	float gp = 0; //getränk preis
 
 	system("CLS"); //Bildshirm löschen
 
