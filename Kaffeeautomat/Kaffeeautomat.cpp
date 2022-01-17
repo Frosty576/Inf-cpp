@@ -63,29 +63,34 @@ int main() {
 				cout << "*";
 			}
 
-			string p1 = { passwort };
-			string p2 = { pass };
-			
-				if (p1 != p2) { //Ueberprueft ob Passwort richtig ist
-					cout << "Falsches Passwort! Zugang zum Service-Interface verweigert!\n"; 
-					system("pause");
+			int pcheck = 0;
+			for (int i = 0; i < 6; i++) {
+				if (passwort[i] == pass[i]) { //Ueberprueft ob Passwort richtig ist und wenn ja wird pcheck 1 zugewiesen
+					pcheck = 1;
 				}
-
 				else {
-					cout << "\nService-Interface\n";
-					cout << "-----------------------------------------------\n";
-					cout << "Noch vorhandene Mengen:\n";
-					cout << "Kaffee :" << kb << " g Milch: " << m << "ml\n";
-					cout << "Espresso :" << eb << " g Wasser: " << w << "ml\n";
-					cout << "Zucker: " << z << " g\n";
-					cout << "-----------------------------------------------\n";
-					cout << "Mengen pro Tasse :\n";
-					cout << "Kaffee: " << km << " g Milch: " << mm << " ml\n";
-					cout << "Espresso: " << em << " g Wasser fr Kaffee: " << wmk << " ml\n";
-					cout << "Zucker: " << zm << " g Wasser fr Espresso: " << wme << " ml\n";
-					cout << "-----------------------------------------------\n";
-					system("pause");
+					pcheck = 0;
 				}
+			}
+			if (pcheck == 1) { //Wenn pcheck gleich 1 ist, wird der Service-Mode angezeigt
+				cout << "\nService-Interface\n";
+				cout << "-----------------------------------------------\n";
+				cout << "Noch vorhandene Mengen:\n";
+				cout << "Kaffee :" << kb << " g Milch: " << m << "ml\n";
+				cout << "Espresso :" << eb << " g Wasser: " << w << "ml\n";
+				cout << "Zucker: " << z << " g\n";
+				cout << "-----------------------------------------------\n";
+				cout << "Mengen pro Tasse :\n";
+				cout << "Kaffee: " << km << " g Milch: " << mm << " ml\n";
+				cout << "Espresso: " << em << " g Wasser fr Kaffee: " << wmk << " ml\n";
+				cout << "Zucker: " << zm << " g Wasser fr Espresso: " << wme << " ml\n";
+				cout << "-----------------------------------------------\n";
+				system("pause");
+			}
+			else {
+				cout << "Falsches Passwort! Zugang zum Service-Interface verweigert!\n";
+				system("pause");
+			}
 		}
 		continue;
 		
