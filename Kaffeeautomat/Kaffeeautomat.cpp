@@ -1,4 +1,6 @@
 #include <iostream>
+#include <conio.h>
+#include <cstring>
 using namespace std;
 
 int main() {
@@ -19,6 +21,9 @@ int main() {
 	float mp = .1f; //Milchpreis
 	float zp = .1f; //Zuckerpreis
 	float gp = 0; //getränk preis
+	char pass[7] = { 'q', 'w', 'e', 'r', 't', 'z', '\0'};
+	char passwort[7] = {'\0'};
+	
 
 	while (true) {
 
@@ -33,7 +38,7 @@ int main() {
 		cout << "(k) Kaffee\n";
 		cout << "(e) Espresso\n";
 		cout << "(s) Service-Mode\n";
-
+		
 		char x;
 		cin >> x;
 		switch (x) {
@@ -50,74 +55,94 @@ int main() {
 			gp = gp + ep;	//Preis von Espresso
 			break;
 		case 's':
-			cout << "Service-Interface\n";
-			cout << "-----------------------------------------------\n";
-			cout << "Noch vorhandene Mengen:\n";
-			cout << "Kaffee :" << kb << " g Milch: " << m << "ml\n";
-			cout << "Espresso :" << eb << " g Wasser: " << w << "ml\n";
-			cout << "Zucker: " << z << " g\n";
-			cout << "-----------------------------------------------\n";
-			cout << "Mengen pro Tasse :\n";
-			cout << "Kaffee: " << km << " g Milch: " << mm << " ml\n";
-			cout << "Espresso: " << em << " g Wasser fr Kaffee: " << wmk << " ml\n";
-			cout << "Zucker: " << zm << " g Wasser fr Espresso: " << wme << " ml\n";
-			cout << "-----------------------------------------------\n";
-			system("pause");
-			continue;
+		{
+			cout << "Bitte geben Sie das Passwort ein: ******\n";
+
+			for (int i = 0; i < 6; i++) { //Passwort einlesen 
+				passwort[i] = _getch();
+				cout << "*";
+			}
+
+			string p1 = { passwort };
+			string p2 = { pass };
+			
+				if (p1 != p2) { //Ueberprueft ob Passwort richtig ist
+					cout << "Falsches Passwort! Zugang zum Service-Interface verweigert!\n"; 
+					system("pause");
+				}
+
+				else {
+					cout << "\nService-Interface\n";
+					cout << "-----------------------------------------------\n";
+					cout << "Noch vorhandene Mengen:\n";
+					cout << "Kaffee :" << kb << " g Milch: " << m << "ml\n";
+					cout << "Espresso :" << eb << " g Wasser: " << w << "ml\n";
+					cout << "Zucker: " << z << " g\n";
+					cout << "-----------------------------------------------\n";
+					cout << "Mengen pro Tasse :\n";
+					cout << "Kaffee: " << km << " g Milch: " << mm << " ml\n";
+					cout << "Espresso: " << em << " g Wasser fr Kaffee: " << wmk << " ml\n";
+					cout << "Zucker: " << zm << " g Wasser fr Espresso: " << wme << " ml\n";
+					cout << "-----------------------------------------------\n";
+					system("pause");
+				}
+		}
+		continue;
+		
 		default:
 			cout << "Falsche Eingabe!\n";
 			system("pause");
 			continue;
 		}
 
-		cout << "M”chten Sie Zucker (j/n)?\n";
-		char cinz; // (j/n) Zucker eingabe
-		cin >> cinz;
-		switch (cinz) {
-		case 'j':
+			cout << "M”chten Sie Zucker (j/n)?\n";
+			char cinz; // (j/n) Zucker eingabe
+			cin >> cinz;
+			switch (cinz) {
+			case 'j':
 				z = z - zm;		//(Zucker vorrat - Zucker pro Tasse)
 				gp = gp + zp;	//(Getränk preis + Zucker Preis)
-		case 'n':
-		break;
-		default:
-			cout << "Falsche Eingabe!\n";
-			gp = 0;
-			system("pause");
-			continue;	//Falls eingabe falsch ist, 'continue' (Züruck an Anfang der While schleife)
-		}
+			case 'n':
+				break;
+			default:
+				cout << "Falsche Eingabe!\n";
+				gp = 0;
+				system("pause");
+				continue;	//Falls eingabe falsch ist, 'continue' (Züruck an Anfang der While schleife)
+			}
 
-		cout << "M”chten Sie Milch (j/n)?\n";
-		char cinm; // (j/n) Milch eingabe
-		cin >> cinm;
-		switch (cinm) {
-		case 'j':
+			cout << "M”chten Sie Milch (j/n)?\n";
+			char cinm; // (j/n) Milch eingabe
+			cin >> cinm;
+			switch (cinm) {
+			case 'j':
 				m = m - mm;		//Milch vorrat - Milch pro Tasse
 				gp = gp + mp;	//(Getränk preis + Milch Preis)
-		case 'n':
-			break;
-		default:
-			cout << "Falsche Eingabe!\n";
-			gp = 0;
-			system("pause");
-			continue;	//Falls eingabe falsch ist, 'continue' (Züruck an Anfang der While schleife)
-		}
+			case 'n':
+				break;
+			default:
+				cout << "Falsche Eingabe!\n";
+				gp = 0;
+				system("pause");
+				continue;	//Falls eingabe falsch ist, 'continue' (Züruck an Anfang der While schleife)
+			}
 
-		cout << "Bitte " << gp << " Euro eingeben und ENTER dr\u0081cken\n"; //Ausgabe von gesamt Preis
-		float geld;	//geld eingabe
-		cin >> geld;
-		if (geld >= gp) {
-			float rgeld = geld - gp; //rückgeld
-			cout << "Ihr Getr„nk wird zubereitet.....\n";
-			cout << "Bitte " << rgeld << " Euro R\u0081ckgeld und das Getr„nk entnehmen -:)\n";
-			system("pause");
-		}
-		else {
-			cout << "Zu wenig Geld, Bestellung abgebrochen\n";
+			cout << "Bitte " << gp << " Euro eingeben und ENTER dr\u0081cken\n"; //Ausgabe von gesamt Preis
+			float geld;	//geld eingabe
+			cin >> geld;
+			if (geld >= gp) {
+				float rgeld = geld - gp; //rückgeld
+				cout << "Ihr Getr„nk wird zubereitet.....\n";
+				cout << "Bitte " << rgeld << " Euro R\u0081ckgeld und das Getr„nk entnehmen -:)\n";
+				system("pause");
+			}
+			else {
+				cout << "Zu wenig Geld, Bestellung abgebrochen\n";
+				gp = 0;
+				system("pause");
+				continue;
+			}
 			gp = 0;
-			system("pause");
-			continue;
 		}
-		gp = 0;
+		return 0;
 	}
-	return 0;
-}
