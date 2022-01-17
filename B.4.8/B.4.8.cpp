@@ -19,4 +19,26 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		cin >> *(pmesswerte + i);
 	}
+
+	cout << "Messwerte[m]\n";
+	cout << "---------\n";
+
+	for (int i = 0; i < n; i++) {
+		cout << *(pmesswerte + i) << endl;
+		summe += *(pmesswerte + i);
+	}
+
+	mittelwert = summe / n;
+
+	for (int i = 0; i < n; i++) {
+		sumvarianz += (*(pmesswerte + i) - mittelwert) * (*(pmesswerte + i) - mittelwert);
+	}
+
+	varianz = sumvarianz / n;
+
+	cout << endl << "Mittelwert = " << mittelwert << "m Varianz = " << varianz << " quadratmeter" << endl;
+
+	system("pause");
+
+	delete[] pmesswerte;
 }
