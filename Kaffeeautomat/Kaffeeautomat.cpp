@@ -62,17 +62,14 @@ int main() {
 				passwort[i] = _getch();
 				cout << "*";
 			}
-
-			int pcheck = 0;
+			
+			bool pcheck = true;
 			for (int i = 0; i < 6; i++) {
-				if (passwort[i] == pass[i]) { //Ueberprueft ob Passwort richtig ist und wenn ja wird pcheck 1 zugewiesen
-					pcheck = 1;
-				}
-				else {
-					pcheck = 0;
+				if (passwort[i] != pass[i]) { //Ueberprueft ob Passwort falsch ist und wenn ja wird pcheck false zugewiesen
+					pcheck = false;
 				}
 			}
-			if (pcheck == 1) { //Wenn pcheck gleich 1 ist, wird der Service-Mode angezeigt
+			if (pcheck == true ) { //Wenn pcheck gleich True ist, wird der Service-Mode angezeigt
 				cout << "\nService-Interface\n";
 				cout << "-----------------------------------------------\n";
 				cout << "Noch vorhandene Mengen:\n";
