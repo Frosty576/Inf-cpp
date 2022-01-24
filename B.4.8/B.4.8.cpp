@@ -2,43 +2,48 @@
 
 using namespace std;
 
-int main() {
-	float* pmesswerte;
-	float n;
-	float varianz = 0;
-	float sumvarianz = 0;
-	float mittelwert = 0;
-	float summe = 0;
+void berechne_mittelwert_varianz(double arr[],double* mw, double* v, int size) {
+	double summe = 0;
+	double sumvarianz = 0;
 
+	cout << "Messwerte[m]\n";
+	cout << "---------\n";
+	for (int i = 0; i < size; i++) {
+		cout << *(arr + i) << endl;
+		summe += *(arr + i);
+	}
+
+	*mw = summe / size;
+
+	for (int i = 0; i < size; i++) {
+		sumvarianz += (*(arr + i) - *mw) * (*(arr + i) - *mw);
+	}
+
+	*v = sumvarianz / size;
+}
+
+int main() {
+	double varianz = 0;
+	double mittelwert = 0;
+	double* pmesswerte;
+	int n;
+	
 	cout << "Wie viele Messwerte moechten Sie eingeben?\n";
 	cin >> n;
 
 	cout << "Bitte ihre Messwerte eingeben:\n";
-	pmesswerte = new float[n];
+	pmesswerte = new double[n];
 
 	for (int i = 0; i < n; i++) {
 		cin >> *(pmesswerte + i);
 	}
 
-	cout << "Messwerte[m]\n";
-	cout << "---------\n";
+	berechne_mittelwert_varianz(pmesswerte, &mittelwert, &varianz, n);
 
-	for (int i = 0; i < n; i++) {
-		cout << *(pmesswerte + i) << endl;
-		summe += *(pmesswerte + i);
-	}
-
-	mittelwert = summe / n;
-
-	for (int i = 0; i < n; i++) {
-		sumvarianz += (*(pmesswerte + i) - mittelwert) * (*(pmesswerte + i) - mittelwert);
-	}
-
-	varianz = sumvarianz / n;
-
+	
 	cout << endl << "Mittelwert = " << mittelwert << "m Varianz = " << varianz << " quadratmeter" << endl;
-
 	system("pause");
 
 	delete[] pmesswerte;
+	return 0;
 }
