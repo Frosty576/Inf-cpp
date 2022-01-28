@@ -1,6 +1,14 @@
 #include <iostream>
 #include <conio.h>
 #include <cstring>
+
+//#define PRINT
+#ifdef PRINT
+//konvertiert das Eingabeparameter zu einen String literal
+#define PRINTVARIABLE(X) cout << endl << (#X) << "=" << (X) << endl
+#else
+#define PRINTVARIABLE(X) 
+#endif
 using namespace std;
 
 struct daten {
@@ -42,7 +50,8 @@ void UI_zusaetze_kaffee(bool beide, bool* pbmilch, bool* pbzucker) {
 		UI_zusaetze_kaffee(beide, pbmilch, pbzucker);
 		return;
 	}
-
+	PRINTVARIABLE(*pbzucker);
+	
 	cout << "M”chten Sie Milch (j/n)?\n";
 	char cinm; // (j/n) Milch eingabe
 	cin >> cinm;
@@ -59,14 +68,16 @@ void UI_zusaetze_kaffee(bool beide, bool* pbmilch, bool* pbzucker) {
 		UI_zusaetze_kaffee(beide, pbmilch, pbzucker);
 		return;
 	}
+	PRINTVARIABLE(*pbmilch);
 	return;
-	/*if ((*pbmilch == true) && (*pbzucker == true)) {
+	if ((*pbmilch == true) && (*pbzucker == true)) {
 		beide = true;
 	}
 	else {
 		*pbmilch = false;
 		*pbzucker = true;
-	}*/
+	}
+	PRINTVARIABLE(beide);
 }
 
 bool UI(bool* pbkaffee, bool* pbmilch, bool* pbzucker, bool* pbespresso, bool* pbservice, daten kaffee) {
@@ -90,15 +101,18 @@ bool UI(bool* pbkaffee, bool* pbmilch, bool* pbzucker, bool* pbespresso, bool* p
 		*pbkaffee = true;
 		cout << "Sie haben sich f\u0081r die Auswahl Kaffee entschieden.\n";
 		UI_zusaetze_kaffee(&beide, pbmilch, pbzucker);
+		PRINTVARIABLE(*pbkaffee);
 		break;
 	case 'e':
 		cout << "Sie haben sich f\u0081r die Auswahl Espresso entschieden.\n";
 		*pbespresso = true;
 		UI_zusaetze_kaffee(&beide, pbmilch, pbzucker);
+		PRINTVARIABLE(*pbespresso);
 		break;
 	case 's':
 		cout << "Sie haben sich f\u0081r die Auswahl Service-Mode entschieden.\n";
 		*pbservice = true;
+		PRINTVARIABLE(*pbservice);
 		break;
 	default:
 		cout << "Falsche Eingabe!\n";
@@ -160,6 +174,7 @@ float preis_berechnen(bool bkaffee, bool bmilch, bool bzucker,bool bespresso, da
 			preis += kaffee.preis_zutaten_pro_tasse;
 		}
 	}
+	PRINTVARIABLE(preis);
 	return preis;
 }
 
@@ -209,6 +224,11 @@ int main() {
 		
 
 		if (UI(&bkaffee, &bmilch, &bzucker, &bespresso, &bservice, kaffee) == false) {
+			PRINTVARIABLE(bkaffee);
+			PRINTVARIABLE(bmilch);
+			PRINTVARIABLE(bzucker);
+			PRINTVARIABLE(bespresso);
+			PRINTVARIABLE(bservice);
 			if (bservice == true) {
 				SI(kaffee);
 				continue;
