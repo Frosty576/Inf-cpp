@@ -18,5 +18,13 @@
     <ClCompile Include="Kaffeeautomat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Funktionen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Kaffeeautomat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
