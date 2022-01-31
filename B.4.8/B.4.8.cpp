@@ -3,8 +3,8 @@
 using namespace std;
 
 void berechne_mittelwert_varianz(double arr[],double* mw, double* v, int size) {
-	double summe = 0;
-	double sumvarianz = 0;
+	double summe = 0.0;
+	double sumvarianz = 0.0;
 
 	cout << "Messwerte[m]\n";
 	cout << "---------\n";
@@ -13,18 +13,18 @@ void berechne_mittelwert_varianz(double arr[],double* mw, double* v, int size) {
 		summe += *(arr + i);
 	}
 
-	*mw = summe / size;
+	*mw = summe / static_cast<double>(size);
 
 	for (int i = 0; i < size; i++) {
 		sumvarianz += (*(arr + i) - *mw) * (*(arr + i) - *mw);
 	}
 
-	*v = sumvarianz / size;
+	*v = sumvarianz / static_cast<double>(size);
 }
 
 int main() {
-	double varianz = 0;
-	double mittelwert = 0;
+	double varianz = 0.0;
+	double mittelwert = 0.0;
 	double* pmesswerte;
 	int n;
 	

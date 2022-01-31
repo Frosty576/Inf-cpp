@@ -7,8 +7,8 @@ bool berechne_kuegeldaten(double fr, double* po, double* pv) {
 
 	if (fr < 0.0)
 		return false;
-	*po = 4 * M_PI * pow(fr, 2.0);
-	*pv = (4 / 3) * M_PI * pow(fr, 3.0);
+	*po = 4.0 * M_PI * pow(fr, 2.0);
+	*pv = (4.0 / 3.0) * M_PI * pow(fr, 3.0);
 	return true;
 }
 
