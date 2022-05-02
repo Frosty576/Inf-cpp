@@ -34,5 +34,39 @@ public:
 	//Destruktor
 	~Auto()
 	{}
-	
+
+	//Methoden
+	float fahren(float strecke) {
+		float gesamtverbrauch = ((spritverbrauch / 100) * strecke);
+		if (gesamtverbrauch <= tankinhalt) {
+			tankinhalt = tankinhalt - gesamtverbrauch;
+			std::cout << "Sie sind " << strecke << " km gefahren" << std::endl;
+			return strecke;
+		}
+		else {
+			float moeglich_strecke = tankinhalt / (spritverbrauch / 100);
+			std::cout << "Ihr Tankinhalt reicht fuer die Strecke nicht aus. Sie sind " << moeglich_strecke << " km gefahren, bevor ihr Tank entleert wurde" << std::endl;
+			return moeglich_strecke;
+		}
+	}
+
+	//Getter Methoden
+	int get_radzahl() const { return radzahl; }
+	std::string get_farbe() const { return farbe; }
+	int get_ps() const { return ps; }
+	int get_anzahl_sitze() const { return anzahl_sitze; }
+	float get_spritverbrauch() const { return spritverbrauch; }
+	float get_tankinhalt() const { return tankinhalt; }
+	int get_tankgroesse() const { return tankgroesse; }
+
+	//Setter Methoden
+	bool set_tankinhalt(float spritmenge) {
+		if ((spritmenge < 0) || (spritmenge > tankgroesse) || (spritmenge + tankinhalt > tankgroesse)) {
+			std::cout << "Tankgroesse ist zu Klein" << '\n';
+			return false;
+		}
+		tankinhalt += spritmenge;
+		std::cout << "Tank enthaelt nun " << tankinhalt << " Gas" << "\n";
+		return true;
+	}
 };
