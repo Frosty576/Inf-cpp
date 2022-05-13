@@ -6,7 +6,7 @@ bool Datum::Flag{ false };
 int Datum::KlassenZaehler{0};
 int main() {
 	
-	Datum::Plappern(true);
+	Datum::Plappern(false);
 
 		Datum heute{ 2,5,2020 };
 		Datum e1{ 1, 1, 1 };
@@ -19,10 +19,11 @@ int main() {
 		Datum e8{ 1, 1, 1 };
 		Datum e9{ 1, 1, 1 };
 		Datum e10{ 1, 5, 1 };
+		Datum e11{ 1, 5, 1 };
 
 		std::cout << Datum::IstSchaltjahr(4) << std::endl;
-		std::cout << heute.IstSchaltjahr(100) << std::endl;
-		std::cout << heute.IstSchaltjahr(400) << std::endl;
+		std::cout << Datum::IstSchaltjahr(100) << std::endl;
+		std::cout << Datum::IstSchaltjahr(400) << std::endl;
 		std::cout << heute.TagDesJahres() << std::endl;
 		std::cout << e9.TagDesJahres() << std::endl;
 		
