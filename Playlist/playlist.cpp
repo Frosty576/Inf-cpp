@@ -12,6 +12,7 @@
 #include <string>
 #include "playlist.h"
 #include <fstream>
+#include <time.h>
 
 
 
@@ -346,8 +347,8 @@ void playlist::PlaylistLaden()
 			getline(Quelle, ptr->interpret); //reads second line
 			getline(Quelle, hilfe);//reads third line
 			ptr->kategorie = static_cast<mkat> (atoi(hilfe.c_str())); //changes hilfe to mkat
-			
 			ptr->next = NULL;
+
 			if (start_pointer == NULL) {
 				start_pointer = ptr;
 				neuelement = ptr;
@@ -361,6 +362,70 @@ void playlist::PlaylistLaden()
 	Quelle.close();
 }
 
+void verzögerung(int sekunde) {
+
+	int milli_sekunde = 1000 * sekunde; 
+
+	clock_t start_zeit = clock();
+
+	while (clock() < start_zeit + milli_sekunde);
+	
+}
+
+void playlist::PlaylistAbspielen(int text) {
+	struct titel* ptr = start_pointer;
+	string Titel;
+	int rndtime = rand() % 7 + 2;
+
+	if (text == 1) {
+
+		struct titel* ptr = start_pointer;
+
+		system("cls");
+		cout << "\n Playlist " << name << endl << endl;
+
+		if (ptr == NULL) {
+			cout << "Die Playlist ist leer.\n";
+			system("pause");
+		}
+
+		while (ptr != NULL)
+		{
+			/* Ausgabe der playlist */
+			
+				cout << "Titel:......." << ptr->name << endl;
+				cout << "Interpreter:." << ptr->interpret << endl;
+				cout << "Kategorie:..." << enumkat_in_string(ptr->kategorie) << endl;
+				for (int i = 0; i < rndtime; i++) {
+					verzögerung(1);
+					cout << "\a";
+				}
+			ptr = ptr->next;
+		}
+	}
+	if (text == 2) {
+
+		ZeileEingeben("Bitte den gesuchten Titel der Playlist eingeben:", Titel);
+
+		while (ptr != NULL && (ptr->name != Titel)) {
+			ptr = ptr->next;
+		}
+			if (ptr == NULL) {
+				cout << "Titel wurde nicht gefunden" << endl;
+			}
+			else {
+				// Ausgabe des Titels
+				cout << "Titel:......." << ptr->name << endl;
+				cout << "Interpreter:." << ptr->interpret << endl;
+				cout << "Kategorie:..." << enumkat_in_string(ptr->kategorie) << endl;
+				for (int i = 0; i < rndtime; i++) {
+					verzögerung(1);
+					cout << "\a";
+				}
+
+			}
+	}
+}
 
 
 

@@ -26,6 +26,7 @@ int main(void)
 	string Interpret;
 	mkat Kategorie;
 	string temp{};
+	int tmp = 0;
 
 	int eingabe = -1;
 	do {
@@ -73,7 +74,12 @@ int main(void)
 			break;
 		case 5:
 			// Playlist abspielen
-			cout << "noch nicht implementiert" << endl;
+			system("cls");
+			cout << "Playlist abspielen: 1" << endl;
+			cout << "Titel abspielen:....2" << endl;
+			cin >> tmp;
+			my_playlist.PlaylistAbspielen(tmp);
+			
 			Sleep(2000);
 			break;
 		case 6:
