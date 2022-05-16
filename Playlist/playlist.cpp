@@ -236,6 +236,7 @@ bool playlist::TitelSuchenundAnzeigen(string Name, string& i, mkat& k)
 
 	/* nachschauen, ob der Titel in der verketteten Liste vorhanden ist */
 	while (ptr != NULL && (ptr->name != Name))
+		cout << ptr->next << endl;
 		ptr = ptr->next;
 
 	// der gesuchte Titel wurde nicht gefunden 
@@ -310,11 +311,12 @@ void playlist::PlaylistSpeichern()
 void playlist::PlaylistLaden()
 /*====================================================*/
 {
-
+	
 	titel tmp;
 	ifstream Quelle;
 	string hilfe{ name };
-
+	struct titel* neuelement = NULL;
+	struct titel* ptr = new titel;
 	hilfe += ".txt";
 
 	Quelle.open(hilfe.c_str(), ios_base::in);
@@ -330,8 +332,7 @@ void playlist::PlaylistLaden()
 
 	while (!Quelle.eof())
 	{
-		struct titel* ptr;
-		getline(Quelle, hilfe);
+		getline(Quelle, hilfe); //reads first line
 		if (hilfe.length() == 0)
 			break;
 		if ((ptr = new titel) == NULL) {
@@ -341,16 +342,22 @@ void playlist::PlaylistLaden()
 			return;
 		}
 		else {
-
 			ptr->name = hilfe;
-			getline(Quelle, ptr->interpret);
-			getline(Quelle, hilfe);
-			ptr->kategorie = static_cast<mkat> (atoi(hilfe.c_str()));
-			ptr->next = start_pointer;
-			start_pointer = ptr;
+			getline(Quelle, ptr->interpret); //reads second line
+			getline(Quelle, hilfe);//reads third line
+			ptr->kategorie = static_cast<mkat> (atoi(hilfe.c_str())); //changes hilfe to mkat
+			
+			ptr->next = NULL;
+			if (start_pointer == NULL) {
+				start_pointer = ptr;
+				neuelement = ptr;
+			}
+			else {
+				neuelement->next = ptr;
+				neuelement = ptr;
+			}
 		}
 	}
-
 	Quelle.close();
 }
 
