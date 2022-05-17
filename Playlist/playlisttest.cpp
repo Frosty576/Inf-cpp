@@ -79,8 +79,6 @@ int main(void)
 			cout << "Titel abspielen:....2" << endl;
 			cin >> tmp;
 			my_playlist.PlaylistAbspielen(tmp);
-			
-			Sleep(2000);
 			break;
 		case 6:
 			// Playlist speichern */
