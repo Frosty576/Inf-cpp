@@ -19,10 +19,10 @@ public:
 	int get_real() { return real; }
 	int get_imaginaer() { return imaginaer; }
 
-	int set_real(int r) {
+	void set_real(int r) {
 		real = r;
 	}
-	int set_imaginaer(int i) {
+	void set_imaginaer(int i) {
 		imaginaer = i;
 	}
 	complex operator+ (const complex& b) {
