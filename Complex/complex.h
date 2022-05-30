@@ -48,7 +48,7 @@ public:
 			complexnum.imaginaer = ((this->imaginaer * b.real) - (this->real * b.imaginaer)) / (pow(b.real, 2) + pow(b.imaginaer, 2));		
 		}
 		catch(overflow_error& e) {
-			cout << e.what() << " " << this->real << "+" << this ->imaginaer  << "i / " << b.real << "+" << b.imaginaer << "i -> ";
+			cout << e.what() << endl;
 		}
 		return complexnum;
 	}
